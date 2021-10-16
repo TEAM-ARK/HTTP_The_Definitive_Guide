@@ -721,7 +721,7 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 - 이러한 지나칠 정도의 단순함으로 다양한 상황에 대응할 수 없었음
 - 또한 HTTP의 기능들과 애플리케이션도 대부분 구현 불가능했음.
 
-## HTTP/2 메시지
+## HTTP/2 프레임
 
 ![HTTP 2 메시지](https://mdn.mozillademos.org/files/13819/Binary_framing2.png)
 - 메세지 외에 프레임과 스트림이라는 새로운 단위 추가
@@ -731,7 +731,7 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 - HTTP/1.x 메시지를 프레임으로 나누어 스트림에 끼워넣음.
 - 헤더 필드를 압축을 도입하고 동일한 연결에서 다중 동시 교환을 허용함으로써 네트워크 리소스를 보다 효율적으로 사용하고 지연 시간을 줄임.
 - 요청의 우선순위 지정을 허용함으로써 더 중요한 요청이 더 빨리 완료되도록 하여 성능을 더욱 개선
-- 더 자세한 내용은 [HTTP/2 ](https://developers.google.com/web/fundamentals/performance/http2) 참고
+- 더 자세한 내용은 [HTTP/2 소개](https://developers.google.com/web/fundamentals/performance/http2) 참고
 
 # 3.6 HTTP 메시지 작성시 주의 사항
 
