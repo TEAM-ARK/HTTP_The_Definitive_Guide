@@ -1,16 +1,36 @@
 # 3장 HTTP 메시지
 
 # 목차
-- 3.1 HTTP 메시지란?
-- 3.2 HTTP 메시지 흐름
-- 3.3 메시지의 각 부분
-- 3.4 메시지 문법
-- 3.5 HTTP/0.9와 HTTP/2 메시지
-- 3.6 HTTP 메시지 작성시 주의 사항
+- [3.1 HTTP 메시지란?](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#31-http-%EB%A9%94%EC%8B%9C%EC%A7%80%EB%9E%80)
+- [3.2 HTTP 메시지 흐름](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#32-http-%EB%A9%94%EC%8B%9C%EC%A7%80-%ED%9D%90%EB%A6%84)
+    - [3.2.1 트랜잭션 방향 표현](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#321-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%B0%A9%ED%96%A5-%ED%91%9C%ED%98%84)
+    - [3.2.2 메시지 흐름 표현](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#322-%EB%A9%94%EC%8B%9C%EC%A7%80-%ED%9D%90%EB%A6%84-%ED%91%9C%ED%98%84)
+- [3.3 메시지의 각 부분](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#33-%EB%A9%94%EC%8B%9C%EC%A7%80%EC%9D%98-%EA%B0%81-%EB%B6%80%EB%B6%84)
+- [3.4 메시지 문법](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#34-%EB%A9%94%EC%8B%9C%EC%A7%80-%EB%AC%B8%EB%B2%95)
+    - [3.4.1 시작줄](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#341-%EC%8B%9C%EC%9E%91%EC%A4%84)
+        - [요청줄](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9A%94%EC%B2%AD%EC%A4%84)
+            - [메서드](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EB%A9%94%EC%84%9C%EB%93%9C)
+            - [요청 URL](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9A%94%EC%B2%AD-url)
+            - [HTTP 버전](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#http%EB%B2%84%EC%A0%84)
+        - [응답줄](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%91%EB%8B%B5%EC%A4%84)
+            - [HTTP 버전](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EB%B2%84%EC%A0%84-%EB%B2%88%ED%98%B8)
+            - [상태 코드](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C)
+            - [사유 구절](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%82%AC%EC%9C%A0-%EA%B5%AC%EC%A0%88)
+    - [3.4.2 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#342-%ED%97%A4%EB%8D%94)
+        - [일반 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%BC%EB%B0%98-%ED%97%A4%EB%8D%94)
+        - [요청 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9A%94%EC%B2%AD-%ED%97%A4%EB%8D%94)
+        - [프락시 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%91%EB%8B%B5-%ED%97%A4%EB%8D%94)
+        - [엔터티 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%97%94%ED%84%B0%ED%8B%B0-%ED%97%A4%EB%8D%94)
+        - [확장 헤더](https%3a%2f%2fgithub.com%2fArk-inflearn%2fHTTP_The_Definitive_Guide%2fblob%2fmaster%2f03.++HTTP+%eb%a9%94%ec%8b%9c%ec%a7%80%2f03_HTTP-%eb%a9%94%ec%84%b8%ec%a7%80_%eb%82%98%ed%98%84.md%23%ed%99%95%ec%9e%a5-%ed%97%a4%eb%8d%94)
+    - [3.4.3 본문(엔터티 본문)](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#343-%EB%B3%B8%EB%AC%B8%EC%97%94%ED%84%B0%ED%8B%B0-%EB%B3%B8%EB%AC%B8)
+- [3.5 HTTP/0.9와 HTTP/2 메시지](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#35-http09%EC%99%80-http2-%EB%A9%94%EC%8B%9C%EC%A7%80)
+    - [3.5.1 HTTP/0.9 메시지](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#http09-%EB%A9%94%EC%8B%9C%EC%A7%80)
+    - [3.5.2 HTTP/2 프레임](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#http2-%ED%94%84%EB%A0%88%EC%9E%84)
+- [3.6 HTTP 메시지 작성시 주의 사항](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#36-http-%EB%A9%94%EC%8B%9C%EC%A7%80-%EC%9E%91%EC%84%B1%EC%8B%9C-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD)
 
 # 3.1 HTTP 메시지란?
 
-HTTP 메시지는 클라이언트와 서버 간에 일을 처리(혹은 트랜잭션을 구현)하기 위해서 데이터의 블록입니다. 여기서 말하는 데이터 블록은 아래와 같습니다. 
+HTTP 메시지는 클라이언트와 서버 간에 일을 처리(혹은 트랜잭션을 구현)하기 위해서 주고받은 데이터의 블록들입니다. 여기서 말하는 데이터 블록은 아래와 같습니다. 
 
 <img src="./img/request 데이터 블록.png" alt="request 데이터 블록.png" /> 
 <img src="./img/response 데이터 블록.png" alt="response 데이터 블록.png" />
@@ -44,6 +64,8 @@ HTTP 메시지의 흐름은 업스트림과 다운스트림이라는 용어로 �
 - 다운 스트림: 아래로 흐름
 
 그리고 HTTP 메시지는 클라이언트 방향 혹은 서버 방향으로 이동하는 것과 상관 없이 다운스트림으로 흐릅니다.
+
+<img src="./img/다운 스트림.png" alt="다운 스트림.png">
 
 업스트림과 다운 스트림은 발송자와 수신자를 기준으로 하며, 발송자는 수신자의 업스트림이 됩니다. 
 
@@ -180,8 +202,8 @@ ex) http://localhost:3000/courses?order=popular&view=grid
 
 - TRACE 사용 예시
 
-    - 요청이 의도한대로 요청/응답 연쇄(chain)를 통과하는지 확인할 수 있습니다.
-    - 프락시나 다른 애플리케이션들이 요청에 어떤 영향을 미치는지 알 수 있습니다.
+    - 요청이 의도한대로 요청/응답 연쇄(chain)를 통과하는지 확인 가능
+    - 프락시나 다른 애플리케이션들이 요청에 어떤 영향을 미치는지 알 수 있음.
 
 
 - 요청이 유효하다면, 응답은 전체 요청 메시지를 Content-type: "message/http" 헤더와 함께 본문에 포함시켜야 함. ([RFC2616 참고](https://www.rfc-editor.org/rfc/rfc2616#section-9.8))
@@ -204,7 +226,7 @@ ex) http://localhost:3000/courses?order=popular&view=grid
 <img src="./img/options_요청메세지(수정).png" alt="options_요청메세지(수정).png" />
 
 - Access-Control-Request-Method: preflight 요청의 일부분으로 서버에게 실제 요청이 전달 될 때 POST 요청 메소드로 전달될 것 임을 명시
-- Access-Control-Request-Headers서버에게 실제 요청이 전달될 때 Content-Type과 함께 전달될 것 임을 명사
+- Access-Control-Request-Headers서버에게 실제 요청이 전달될 때 Content-Type과 함께 전달될 것 임을 명시
 
 이렇게 OPTIONS 요청이 사전에 발생하는 이유는 무엇일까요?
 
@@ -464,14 +486,14 @@ HTTP/<메이저>.<마이너>
 `404 Not Found`   
 
 - 서버가 요청한 URL을 찾을 수 없음을 알려주기 위해 사용함.
-- 아래와 같이 종종 클라이언트 애플리케이션이 사용자에게 보여주기 위한 엔터티가 포함되기도 함. 아래는 [naver.com/ff](http://naver.com/ff)로 접속했을 때의 예시다.
+- 아래와 같이 종종 클라이언트 애플리케이션이 사용자에게 보여주기 위한 엔터티가 포함되기도 합니다. 아래는 [naver.com/ff](http://naver.com/ff)로 접속했을 때의 예시입니다.
     
     <img src="./img/404 상태코드.png" alt="404 상태코드.png" />
    
 `405 Method Not Allowed`   
 
 - 요청한 URL에 대해, 지원하지 않는 메서드로 요청받았을 때 사용함.
-- 요청한 리소스에 대해 어떤 메서드가 사용 가능한지 클라이언트에게 알려주기 위해, 요청에 Allow 헤거다 포함되어야 함.
+- 요청한 리소스에 대해 어떤 메서드가 사용 가능한지 클라이언트에게 알려주기 위해, 요청에 Allow 헤더가 포함되어야 함.
 - 유의 사항으로는 두 가지 필수 메소드인 GET과 HEAD는 사용 불가능 하여서는 안 되며, 이러한 오류 타입을 반환해서는 안됨.
 - 아래는 [한국어 맞춤법 검사기의 결과 페이지](http://speller.cs.pusan.ac.kr/results)로 바로 접속하게 됐을 때 HTML 문서로 405 에러와 함께 GET 메서드는 지원을 하지 않는다는 내용을 볼 수 있음.
     
@@ -500,7 +522,7 @@ HTTP/<메이저>.<마이너>
    
 `503 Service Unavaliable`   
 
-- 현재는 서버가 요청을 처리해 줄 수 없지만 나중에는 가능하을 의미하고자 할 때 사용함.
+- 현재는 서버가 요청을 처리해 줄 수 없지만 나중에는 가능함을 의미하고자 할 때 사용함.
 - 일반적인 원인은 유지보수를 위해 작동이 중단되거나, 과부하가 걸렸을 때 발생함.
 - 보통 티켓팅이나 수강신청 등의 이벤트로 트래픽이 초과 되었을 때 만날 수 있음.
     
@@ -540,9 +562,9 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - Body에서 최종적으로 전송되는 데이터와는 관련이 없는 헤더
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Date|메시지가 만들어진 날짜와 시간을 포함|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Date)|
+    |헤더      |설명                                                   |MDN 문서 링크|
+    |:--------:|:-----------------------------------------------------:|:----------:|
+    |Date      |메시지가 만들어진 날짜와 시간을 포함                      |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Date)|
     |Connection|현재의 전송이 완료된 후 네트워크 접속을 유지할지 말지를 제어|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Connection)|
 
 
@@ -550,8 +572,8 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
     
 - HTTP/1.0은 HTTP 애플리케이션에게 매번 서버로부터 객체를 가져오는 대신 로컬 복사본으로 캐시할 수 있도록 해주는 최초의 헤더를 도입함.
     
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
+    |헤더         |설명                                       |MDN 문서 링크|
+    |:-----------:|:----------------------------------------:|:-----------:|
     |Cache-Control|메시지와 함께 캐시 지지자를 전달하기 위해 사용|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cache-Control)|
 
         
@@ -563,12 +585,12 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - 요청에 나타나는 모든 헤더가 요청 헤더인 것은 아님 (ex. 엔터티 헤더인 content-length)
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Host|서버의 호스트명과 포트|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Host)|
-    |User-Agent|요청을 보낸 애플리케이션의 이름|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)|
-    |Origin|POST같은 요청을 보낼 때, 요청이 어느 주소에서 시작되었는지를 나타냄|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Origin)|
-    |Referer|현재 페이지로 연결되는 링크가 있던 이전 웹 페이지의 주소|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Referer)|
+    |헤더      |설명                                                          |MDN 문서 링크|
+    |:--------:|:------------------------------------------------------------:|:----------:|
+    |Host      |서버의 호스트명과 포트                                          |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Host)|
+    |User-Agent|요청을 보낸 애플리케이션의 이름                                  |[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)|
+    |Origin    |POST같은 요청을 보낼 때, 요청이 어느 주소에서 시작되었는지를 나타냄|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Origin)|
+    |Referer   |현재 페이지로 연결되는 링크가 있던 이전 웹 페이지의 주소|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Referer)|
 
 
 #### Accept 관련 헤더
@@ -577,18 +599,18 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - 클라이언트가 무엇을 원하고, 무엇을 할 수 있는지, 무엇을 원하지 않는지 등을 통해 서버는 무엇을 보낼 것인가에 대해 더 똑똑한 결정을 내릴 수 있음.
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
+    |헤더  |설명                                                 |MDN 문서 링크|
+    |:----:|:--------------------------------------------------:|:-----------:|
     |Accept|클라이언트가 이해 가능한 컨텐츠 타입이 무엇인지를 알려줌.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Accept)|
     
 #### 조건부 요청 헤더
     
 - 클라이언트는 서버에게 요청에 응답하기 전에 먼저 조건이 참인지 확인하게 하는 제약을 포함시킬 수 있음.
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |If-Modified-Since|주어진 날짜 이후에 리소스가 변경되지 않았다면 요청을 제한함.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/If-Modified-Since)|
-    |If-None-Match|서버보고 ETag가 달라졌는 지 검사해서 ETag가 다를 경우에만 컨텐츠를 새로 내려주라는 뜻|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)|
+    |헤더             |설명                                                                           |MDN 문서 링크|
+    |:---------------:|:----------------------------------------------------------------------------:|:-----------:|
+    |If-Modified-Since|주어진 날짜 이후에 리소스가 변경되지 않았다면 요청을 제한함.                       |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/If-Modified-Since)|
+    |If-None-Match    |서버보고 ETag가 달라졌는지 검사해서 ETag가 다를 경우에만 컨텐츠를 새로 내려주라는 뜻|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)|
     
 #### 요청 보안 헤더
     
@@ -596,10 +618,10 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - 요청하는 클라이언트가 어느 정도 리소스에 접근하기 전에 자신을 인증하게 함으로써 트랜잭션을 약간 더 안전하게 만들기 위해 사용하는 헤더
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
+    |헤더         |설명                                                       |MDN 문서 링크|
+    |:-----------:|:--------------------------------------------------------:|:-----------:|
     |Authorization|클라이언트가 서버에게 제공하는 인증 그 자체에 대한 정보를 담음.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Authorization)|
-    |Cookie|클라이언트가 서버에게 토큰(쿠키)을 전달할 떄 사용|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cookie)|
+    |Cookie       |클라이언트가 서버에게 토큰(쿠키)을 전달할 떄 사용             |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cookie)|
     
 
 #### 프락시 요청 헤더
@@ -612,49 +634,49 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - 응답에 나타나는 모든 헤더가 응답 헤더인 것은 아님 (ex. 엔터티 헤더인 content-length)
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Age|캐시 응답 때 나타나는데, max-age 시간 내에서 얼마나 흘렀는지 초 단위로 알려줌.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Allow)|
-    |Content-Disposition|응답 본문을 브라우저가 어떻게 표시해야 할지 알려주는 헤더 주로 다운로드 관련해서 사용됨.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Disposition)|
-    |Content-Security-Policy|다른 외부 파일들을 불러오는 경우, 차단할 소스와 불러올 소스를 여기에 명시|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy)|
+    |헤더                    |설명                                                                             |MDN 문서 링크|
+    |:---------------------:|:-------------------------------------------------------------------------------:|:-----------:|
+    |Age                    |캐시 응답 때 나타나는데, max-age 시간 내에서 얼마나 흘렀는지 초 단위로 알려줌.        |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Allow)|
+    |Content-Disposition    |응답 본문을 브라우저가 어떻게 표시해야 할지 알려주는 헤더 주로 다운로드 관련해서 사용됨.|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Disposition)|
+    |Content-Security-Policy|다른 외부 파일들을 불러오는 경우, 차단할 소스와 불러올 소스를 여기에 명시              |[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy)|
 
 
 📌참고 - CORS와 관련된 헤더들은 [여기](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers#cors)를 참고해주세요.
 
-##### 협상 헤더
+#### 협상 헤더
 
 - 서버가 협상 가능한 리소스에 대한 정보를 운반하는 헤더
 
-##### 응답 보안 헤더
+#### 응답 보안 헤더
 
 - 기본적으로 HTTP 인증요구/응답 체계에서 응답 측에 해당하는 요청 보안 헤더
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Set-Cookie|서버가 클라이언트를 인증할 수 있도록 클라이언트 측에 토큰을 설정하기 위해 사용|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Set-Cookie)|
+    |헤더            |설명                                                                     |MDN 문서 링크|
+    |:--------------:|:----------------------------------------------------------------------:|:-----------:|
+    |Set-Cookie      |서버가 클라이언트를 인증할 수 있도록 클라이언트 측에 토큰을 설정하기 위해 사용|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Set-Cookie)|
     |WWW-Authenticate|서버에서 클라이언트로 보낸 인증요구의 목록|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate)|
 
 ### 엔터티 헤더
 
 - 엔터티 바디에 대한 자세한 정보를 포함하는 헤더
 
-- 요청과 응답 양쪽 모두에 엔터티(본문)을 포함하기 떄문에 양쪽 모두 엔터티 헤더가 나타날 수 있음.
+- 요청과 응답 양쪽 모두에 엔터티(본문)을 포함하기 때문에 양쪽 모두 엔터티 헤더가 나타날 수 있음.
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Allow|엔터티에 대해 수행될 수 있는 요청 메서드들을 나열|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Allow)|
-    |Location|페이지를 리다이렉트할 URL|[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location)|
+    |헤더    |설명                                          |MDN 문서 링크                                                                    |
+    |:------:|:-------------------------------------------:|:------------------------------------------------------------------------------:|
+    |Allow   |엔터티에 대해 수행될 수 있는 요청 메서드들을 나열|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Allow)      |
+    |Location|페이지를 리다이렉트할 URL                      |[자세한 설명](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location)|
 
 #### 콘텐츠 헤더
 
 - 엔터티의 콘텐츠에 대한 구체적인 정보 제공
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |Content-Length|본문 길이나 크기를 바이트 단위로 표시|[자세한 설명]()|
-    |Content-Type|컨텐츠 타입과 문자열 인코등 명시|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Type)|
-    |Content-Language|사용자의 언어|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Language)|
-    |Content-Encoding|컨텐츠가 압축된 방식|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding)|
+    |헤더            |설명                               |MDN 문서 링크                                                                        |
+    |:--------------:|:--------------------------------:|:-----------------------------------------------------------------------------------:|
+    |Content-Length  |본문 길이나 크기를 바이트 단위로 표시|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Length)  |
+    |Content-Type    |컨텐츠 타입과 문자열 인코등 명시     |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Type)    |
+    |Content-Language|사용자의 언어                      |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Language)|
+    |Content-Encoding|컨텐츠가 압축된 방식                |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding)|
     
 
 #### 엔터티 캐싱 헤더
@@ -663,16 +685,28 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 
 - 리소스에 대해 캐시된 사본이 아직 유효한지에 대한 정보와 캐시된 리소스가 더 이상 유효하지 않게 되는 시점 추정을 위한 단서
 
-    |헤더|설명|MDN 문서 링크|
-    |:--:|:------:|:------:|
-    |ETag|HTTP 컨텐츠가 바뀌었는지를 검사할 수 있는 태그|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/ETag)|
-    |Expires|응답 컨텐츠가 언제 만료되는지를 나타냄|[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Expires)|
+    |헤더   |설명                                          |MDN 문서 링크                                                               |
+    |:-----:|:-------------------------------------------:|:--------------------------------------------------------------------------:|
+    |ETag   |HTTP 컨텐츠가 바뀌었는지를 검사할 수 있는 태그  |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/ETag)   |
+    |Expires|응답 컨텐츠가 언제 만료되는지를 나타냄          |[자세한 설명](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Expires)|
+
+### 확장 헤더
+
+- 애플리케이션 개발자들에 의해 만들어졌지만 아직 승인된 HTTP 명세에는 추가되지 않은 비표준 헤더
+    - 예를 들면, 구글에서 확장 응답 헤더로 사용되고 있는 x-frame-options, 'x-xss-protection'가 있음.
+    <img src="./img/확장 헤더.png" alt="확장 헤더.png" />
+
+    - 이 같은 커스텀 헤더는 'x-'를 붙여 사용했는데 이 관례는 2012년에 사라짐.
+- HTTP 프로그램은 확장 헤더들에 대해 잘 모를지라도 전달해야 할 필요가 있음.
+
+📌참고 - [Node.js의 express 프레임워크를 사용해서 커스텀 헤더 만들기](https://stackoverflow.com/questions/38332492/add-custom-headers-to-request)
 
 ### 헤더와 관련하여 읽어보면 좋은 글
 
 [알아둬야 할 HTTP 공통 & 요청 헤더](https://www.zerocho.com/category/HTTP/post/5b3ba2d0b3dabd001b53b9db)   
 [알아둬야 할 HTTP 응답 헤더](https://www.zerocho.com/category/HTTP/post/5b4c4e3efc5052001b4f519b)   
 [알아둬야 할 HTTP 쿠키 & 캐시 헤더](https://www.zerocho.com/category/HTTP/post/5b594dd3c06fa2001b89feb9)   
+[알아둬야 할 HTTP X 헤더](https://www.zerocho.com/category/HTTP/post/5b611b9e33b4636aa8bb1fc4)
 
 
 ### 3.4.3 본문(엔터티 본문)
@@ -743,9 +777,9 @@ HTTP 헤더의 집합은 항상 빈줄(CRLF)로 끝나야 합니다.
 📝 참고로 대부분 [RFC2616](https://www.rfc-editor.org/rfc/rfc2616#page-56) 와 [rfc7231](https://datatracker.ietf.org/doc/html/rfc7231) 그리고 [MDN의 HTTP 문서](https://developer.mozilla.org/ko/docs/Web/HTTP)를 많이 참고했습니다. 
    
 [HTTP 메시지(MDN 문서)](https://developer.mozilla.org/ko/docs/Web/HTTP/Messages)   
-[HTTP 메시지 설명에 사용된 이미지](https://feel5ny.github.io/2019/08/15/HTTP_003_01/)
+[HTTP 메시지 설명에 사용된 이미지](https://feel5ny.github.io/2019/08/15/HTTP_003_01/)   
 [안전한 메서드(MDN 문서)](https://developer.mozilla.org/ko/docs/Glossary/Safe/HTTP)   
-[HTTP 헤더(MDN 문서)](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers)
+[HTTP 헤더(MDN 문서)](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers)   
 [자주 사용되는 상태 코드](https://moz.com/learn/seo/http-status-codes)   
 [DETETE 메서드의 응답 바디에 관해서](https://stackoverflow.com/questions/6581285/is-a-response-body-allowed-for-a-http-delete-request)   
 [DELETE 요청시 요청 파라미터 전달 관련해서](https://okky.kr/article/393051)   
