@@ -19,9 +19,9 @@
     - [3.4.2 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#342-%ED%97%A4%EB%8D%94)
         - [일반 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%BC%EB%B0%98-%ED%97%A4%EB%8D%94)
         - [요청 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9A%94%EC%B2%AD-%ED%97%A4%EB%8D%94)
-        - [프락시 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%91%EB%8B%B5-%ED%97%A4%EB%8D%94)
+        - [응답 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%9D%91%EB%8B%B5-%ED%97%A4%EB%8D%94)
         - [엔터티 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%EC%97%94%ED%84%B0%ED%8B%B0-%ED%97%A4%EB%8D%94)
-        - [확장 헤더](https%3a%2f%2fgithub.com%2fArk-inflearn%2fHTTP_The_Definitive_Guide%2fblob%2fmaster%2f03.++HTTP+%eb%a9%94%ec%8b%9c%ec%a7%80%2f03_HTTP-%eb%a9%94%ec%84%b8%ec%a7%80_%eb%82%98%ed%98%84.md%23%ed%99%95%ec%9e%a5-%ed%97%a4%eb%8d%94)
+        - [확장 헤더](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#%ED%99%95%EC%9E%A5-%ED%97%A4%EB%8D%94)
     - [3.4.3 본문(엔터티 본문)](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#343-%EB%B3%B8%EB%AC%B8%EC%97%94%ED%84%B0%ED%8B%B0-%EB%B3%B8%EB%AC%B8)
 - [3.5 HTTP/0.9와 HTTP/2 메시지](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#35-http09%EC%99%80-http2-%EB%A9%94%EC%8B%9C%EC%A7%80)
     - [3.5.1 HTTP/0.9 메시지](https://github.com/Ark-inflearn/HTTP_The_Definitive_Guide/blob/master/03.%20%20HTTP%20%EB%A9%94%EC%8B%9C%EC%A7%80/03_HTTP-%EB%A9%94%EC%84%B8%EC%A7%80_%EB%82%98%ED%98%84.md#http09-%EB%A9%94%EC%8B%9C%EC%A7%80)
@@ -351,9 +351,9 @@ HTTP/<메이저>.<마이너>
 
 시작줄은 **HTTP 버전, 상태 코드, 사유 구절**로 구성되어 있습니다. 
     
-### 🚀버전 번호
+### 🚀HTTP 버전
     
-요청줄에서 버전 번호를 작성하는 방법과 동일
+요청줄에서 HTTP 버전을 작성하는 방법과 동일
     
 ### 🚀상태 코드
     
