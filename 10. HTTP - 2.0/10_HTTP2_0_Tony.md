@@ -145,6 +145,18 @@ HTTP/2를 도입하면서 많은 문제를 해결했지만 TCP 프로토콜 자�
 
 -> UDP를 사용
 
+### QUIC : Quick UDP Internet Connections
+
+- TCP/IP 기반의 애플리케이션 레이어 프로토콜인 HTTP를 QUIC 위에 얹었다
+- HTTP over QUIC : HQ
+- HTTP/2에 있는 프레임, 스트림, 메시지 구조와 기술들은 그대로 HTTP/3으로 승계되었고 명칭만 HQframe, QPACK 등으로 변경
+  ![](https://images.velog.io/images/gth1123/post/ae80b64f-eaa9-4cd3-bd94-f823d6909657/image.png)
+- HTTP/2, HTTP/3의 구조
+
+#### HTTP/3 서버 - 클라이언트
+
+HTTP/2와 마찬가지로 HTTP/3를 사용하려면, 클라이언트(주로 웹 브라우저)와 서버(웹 서버) 모두 HTTP/3 프로토콜을 지원해야 합니다.
+
 ### TCP vs UDP
 
 |                  | TCP                  | UDP                     |
@@ -166,7 +178,15 @@ HTTP/2를 도입하면서 많은 문제를 해결했지만 TCP 프로토콜 자�
 따라서 휴대폰으로 인터넷을 할 때, 중간에 와이파이에서 LTE로 변경해도 스트림이 계속 유지가 된다.
 (TCP의 경우에는 처음부터 다시 데이터를 받아야 함)
 
+## 고찰
+
+- 프론트엔드 웹앱을 개발하는 입장에선 당장 HTTP/2 또는 3을 적용하기 위해 어떤 코드를 수정할 부분이 있는 것은 없는 것 같다.
+
 ### 참고
 
 - https://velog.io/@zzzz465/HTTP1.1-2-3-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90
 - [오버헤드](https://velog.io/@mygomi/TIL-70-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9A%A9%EC%96%B4-%EC%98%A4%EB%B2%84%ED%97%A4%EB%93%9C-Overhead)
+- https://en.wikipedia.org/wiki/HTTP/3
+- [HTTP 3.0 : RFC 9000](https://datatracker.ietf.org/doc/html/rfc9000)
+- https://bruce.pllip.com/HTTP-3-%EC%A0%81%EC%9A%A9
+- https://m.blog.naver.com/sehyunfa/221680799006
