@@ -131,7 +131,7 @@ HTTP/2.0 메세지를 중간의 프락시가 HTTP/1.1 메세지로 변환할 때
 
 ![](https://images.velog.io/images/gth1123/post/45a4ba78-49ff-44c9-b8b0-cc98cf673d7d/image.png)
 
-#### 1.1에서 pipelining 기술을 도입하였지만, 여전히 HOL(Head-of-line) Blockinig 문제가 있음
+#### 1.1에서 pipelining 기술을 도입하였지만, 여전히 HOL(Head-of-line) Blocking 문제가 있음
 
 - HOL Blocking : 패킷이 순서대로 도착해야 하므로, 패킷이 도착할 때 까지 그 이후의 패킷은 전송되지 못하는 것
 - 1개의 TCP 연결당 1개의 스트림만 이용
