@@ -1,1 +1,1 @@
-폴더를 미리 생성하기 위한 파일
+- [HTTP 캐시](https://shirohoo.github.io/backend/server-side/2021-12-11-http-cache/)
